@@ -3,12 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Player 1 Troops
+  - Player 2 Troops
+  - Neutral Objectives
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Assignable
   - Water
   - UI
   - 
