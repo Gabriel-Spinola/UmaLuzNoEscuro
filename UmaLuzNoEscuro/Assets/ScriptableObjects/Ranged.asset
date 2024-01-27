@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: Chupa Cu
   Cost: 2
-  CardType: 0
+  CardType: 3
   WorldObject: {fileID: 5697698141528354411, guid: bff69ead6239a7040831174ec6e81f2b,
     type: 3}
-  Health: 2
+  Health: 10
   AttackDamage: 2

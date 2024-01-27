@@ -17,5 +17,5 @@ MonoBehaviour:
   CardType: 0
   WorldObject: {fileID: 7613499268018227924, guid: b2c282cb4aa1e2d4092e539ad9420b74,
     type: 3}
-  Health: 2
+  Health: 10
   AttackDamage: 1
