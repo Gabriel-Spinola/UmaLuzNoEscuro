@@ -9,18 +9,21 @@ public class DeckPlayer : MonoBehaviour
     private const int MAX_CARDS = 7;
 
     [SerializeField] private uint _startMoney;
+    [SerializeField] private uint _startHealth;
     [SerializeField] private LayerMask _whatIsAssignable;
 
     public readonly List<Card> Deck = new(MAX_CARDS);
     private PlayerUI _ui;
     private Card _selectedCard;
     private Dictionary<Turns, uint> _currentMoney = new();
+    private Dictionary<Turns, uint> _currentHealth = new();
 
     private bool _isWaitingForCastPosition = false;
 
     private void Awake()
     {
         _ui = GetComponent<PlayerUI>();
+        SetupUI();
 
         SetupDeck();
         GameManager.EndTurnEvent += SetupDeck;
@@ -30,6 +33,9 @@ public class DeckPlayer : MonoBehaviour
     {
         _currentMoney.Add(Turns.Player1, _startMoney);
         _currentMoney.Add(Turns.Player2, _startMoney);
+
+        _currentHealth.Add(Turns.Player1, _startHealth);
+        _currentHealth.Add(Turns.Player2, _startHealth);
     }
 
     private void Update()
@@ -43,6 +49,7 @@ public class DeckPlayer : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            _currentHealth[GameManager.CurrentTurn] -= 1u;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hitInfo, _whatIsAssignable))
@@ -112,8 +119,13 @@ public class DeckPlayer : MonoBehaviour
         _isWaitingForCastPosition = true;
     }
 
+    private void SetupUI() {
+        _ui.MaxHealth = _startHealth;
+    }
+
     private void UpdateGUI()
     {
+        _ui.CurrentHealth = _currentHealth[GameManager.CurrentTurn];
         _ui.CurrentMoney = _currentMoney[GameManager.CurrentTurn];
 
         for (int i = 0; i < Deck.Count; i++)
