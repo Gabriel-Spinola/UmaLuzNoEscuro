@@ -49,7 +49,6 @@ public class DeckPlayer : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            _currentHealth[GameManager.CurrentTurn] -= 1u;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hitInfo, _whatIsAssignable))
