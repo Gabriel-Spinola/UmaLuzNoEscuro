@@ -1,6 +1,7 @@
 using UnityEngine;
 using Cinemachine;
 using System;
+using Unity.AI.Navigation;
 
 public readonly struct GameTagsFields
 {
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform _simulationLightning;
 
     [Header("AI")]
+    [SerializeField] private NavMeshSurface _navSurface;
     [SerializeField] private GameObject[] _destroyOnTurnsPhase;
 
     [Header("Cameras")]
@@ -61,11 +63,6 @@ public class GameManager : MonoBehaviour
             State = GameState.Simulating;
 
             _simulationCam.Priority = 2;
-
-            foreach (var @object in _destroyOnTurnsPhase)
-            {
-                Destroy(@object);
-            }
         }
 
         if (State is GameState.Simulating && _cardPlayerObject.activeSelf)
@@ -73,12 +70,35 @@ public class GameManager : MonoBehaviour
             _cardPlayerObject.SetActive(false);
         }
 
-        // TODO - State Control
         switch (State)
         {
-            case GameState.Turns: break;
+            case GameState.Turns:
+                foreach (var obj in _destroyOnTurnsPhase)
+                {
+                    if (obj.activeSelf)
+                    {
+                        continue;
+                    }
 
-            case GameState.Simulating: break;
+                    obj.SetActive(true);
+                    _navSurface.BuildNavMesh();
+                }
+                break;
+
+            case GameState.Simulating:
+                {
+                    foreach (var obj in _destroyOnTurnsPhase)
+                    {
+                        if (!obj.activeSelf)
+                        {
+                            continue;
+                        }
+
+                        obj.SetActive(false);
+                        _navSurface.BuildNavMesh();
+                    }
+                }
+                break;
         }
     }
 

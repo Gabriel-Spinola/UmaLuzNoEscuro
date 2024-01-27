@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 8005600303303384078}
   - component: {fileID: 3246920219687921645}
   - component: {fileID: -3972991133588519917}
+  - component: {fileID: -1568894730486359465}
   m_Layer: 3
-  m_Name: Little Knight
+  m_Name: PFB Little Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,7 +147,6 @@ MonoBehaviour:
   Card: {fileID: 0}
   _attackRange: 1.17
   _attackCooldown: 3
-  _fireball: {fileID: 0}
   _assignable:
     serializedVersion: 2
     m_Bits: 8
@@ -154,3 +154,17 @@ MonoBehaviour:
     type: 2}
   _defaultMaterial: {fileID: 2100000, guid: f659c5aa3bc2ba9468aef4eeec0e1d84, type: 2}
   Agent: {fileID: 0}
+--- !u!114 &-1568894730486359465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7613499268018227924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fbee607b7a015f4c8147351191b87e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackParticles: {fileID: 550818725255500540, guid: 1ab1a323824f3184785774af29fc4230,
+    type: 3}

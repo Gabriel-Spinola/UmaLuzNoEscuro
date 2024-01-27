@@ -10,7 +10,7 @@ public enum NPCTypeID
     RedTeam = -1923039037,
 }
 
-[RequireComponent(typeof(NavMeshAgent), typeof(MeshRenderer))]
+[RequireComponent(typeof(NavMeshAgent), typeof(MeshRenderer), typeof(IAttacker))]
 public class NPCController : MonoBehaviour, IDamageable
 {
     [HideInInspector] public Card Card;
@@ -20,7 +20,6 @@ public class NPCController : MonoBehaviour, IDamageable
     [SerializeField] private float _attackCooldown;
 
     [Header("Assignment")]
-    [SerializeField] private GameObject _fireball;
     [SerializeField] private LayerMask _assignable;
     [SerializeField] private Material _toBeAssignedMaterial;
     [SerializeField] private Material _defaultMaterial;
@@ -92,6 +91,8 @@ public class NPCController : MonoBehaviour, IDamageable
 
             if (GameTagsFields.AllTags.Contains(collidedWithTag) && collidedWithTag != transform.tag)
             {
+                Agent.destination = Vector3.zero;
+
                 Attack(collision[i]);
             }
         }
@@ -104,15 +105,16 @@ public class NPCController : MonoBehaviour, IDamageable
             return;
         }
 
-        target.GetComponent<IDamageable>()?.TakeDamage(Card.Info.AttackDamage);
-        await AttackCooldown();
+        await AttackCooldown(_attackCooldown / 2f);
+        GetComponent<IAttacker>().Attack(target, Card.Info.AttackDamage);
+        await AttackCooldown(_attackCooldown / 2f);
     }
 
-    private async Task AttackCooldown()
+    private async Task AttackCooldown(float cooldown)
     {
         _canAttack = false;
 
-        await Task.Delay(1000 * (int)_attackCooldown);
+        await Task.Delay(1000 * (int)cooldown);
 
         _canAttack = true;
     }
@@ -122,11 +124,11 @@ public class NPCController : MonoBehaviour, IDamageable
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         bool castedAssignRay =
-            Physics.Raycast(ray.origin, ray.direction, out RaycastHit assignHit, _assignable)
+            Physics.Raycast(ray.origin, ray.direction, out RaycastHit assignHit, Mathf.Infinity, _assignable)
             && !_isWaitingForAssignment;
 
         bool castedUnassignRay =
-            Physics.Raycast(ray.origin, ray.direction, out RaycastHit unassignHit, _assignable)
+            Physics.Raycast(ray.origin, ray.direction, out RaycastHit unassignHit, Mathf.Infinity, _assignable)
             && _isWaitingForAssignment;
 
         if (castedAssignRay)
@@ -158,7 +160,7 @@ public class NPCController : MonoBehaviour, IDamageable
         }
 
         if (
-           !(Physics.Raycast(ray.origin, ray.direction, out var _, _assignable) && _isWaitingForAssignment)
+           !(Physics.Raycast(ray.origin, ray.direction, out var _, Mathf.Infinity, _assignable) && _isWaitingForAssignment)
         )
         {
             return;

@@ -150,6 +150,8 @@ MonoBehaviour:
   _whatIsAssignable:
     serializedVersion: 2
     m_Bits: 8
+  _explosionParticles: {fileID: 550818725255500540, guid: 1ab1a323824f3184785774af29fc4230,
+    type: 3}
   _explosionRadius: 1.5
   _projectileSpeed: 15
   Damage: 0

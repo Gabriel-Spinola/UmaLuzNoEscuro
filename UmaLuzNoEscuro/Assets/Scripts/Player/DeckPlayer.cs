@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,10 +12,11 @@ public class DeckPlayer : MonoBehaviour
     [SerializeField] private LayerMask _whatIsAssignable;
 
     public readonly List<Card> Deck = new(MAX_CARDS);
+    private readonly Dictionary<Turns, uint> _currentHealth = new();
+    private readonly Dictionary<Turns, uint> _currentMoney = new();
+    
     private PlayerUI _ui;
     private Card _selectedCard;
-    private Dictionary<Turns, uint> _currentMoney = new();
-    private Dictionary<Turns, uint> _currentHealth = new();
 
     private bool _isWaitingForCastPosition = false;
 

@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 540ddd65f90ddcf46a1ff3d718b48d55, type: 3}
-  m_Name: LittleKnight
+  m_Name: Ranged
   m_EditorClassIdentifier: 
-  CardName: Little Knight
-  Cost: 1
+  CardName: 
+  Cost: 0
   CardType: 0
-  WorldObject: {fileID: 7613499268018227924, guid: b2c282cb4aa1e2d4092e539ad9420b74,
-    type: 3}
-  Health: 2
-  AttackDamage: 1
+  WorldObject: {fileID: 0}
+  Health: 0
+  AttackDamage: 0

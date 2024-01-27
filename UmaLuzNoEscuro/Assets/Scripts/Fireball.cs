@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,6 +6,7 @@ public class Fireball : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private LayerMask _whatIsAssignable;
+    [SerializeField] private ParticleSystem _explosionParticles;
 
     [Header("Stats")]
     [SerializeField, Range(.1f, 5f)] private float _explosionRadius;
@@ -35,6 +34,12 @@ public class Fireball : MonoBehaviour
 
             if (GameTagsFields.AllTags.Contains(collidedWithTag) && collidedWithTag != transform.tag)
             {
+                var particle = Instantiate(_explosionParticles, transform.position, Quaternion.identity);
+                var main = particle.main;
+
+                main.stopAction = ParticleSystemStopAction.Destroy;
+                particle.Play();
+
                 explosionCollisions[i].GetComponent<IDamageable>()?.TakeDamage(Damage);
             }
         }
