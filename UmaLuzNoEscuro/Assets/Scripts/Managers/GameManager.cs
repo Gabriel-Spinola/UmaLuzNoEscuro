@@ -2,6 +2,8 @@ using UnityEngine;
 using Cinemachine;
 using System;
 using Unity.AI.Navigation;
+using UnityEngine.SceneManagement;
+using UnityEditor.SceneManagement;
 
 public readonly struct GameTagsFields
 {
@@ -30,9 +32,11 @@ public class GameManager : MonoBehaviour
     public static GameState State = GameState.Turns;
     public static Turns CurrentTurn = Turns.Player1;
     public static event Action EndTurnEvent;
+    public static GameState TurnBeforePause = GameState.Turns;
 
     [Header("UI References")]
     [SerializeField] private GameObject _cardPlayerObject;
+    [SerializeField] private GameObject _pauseMenu;
 
     [Header("Lightning")]
     [SerializeField] private Transform _turn1Lightning;
@@ -54,10 +58,31 @@ public class GameManager : MonoBehaviour
         _player1Cam.Priority = 1;
         _player2Cam.Priority = 0;
         _simulationCam.Priority = -2;
+
+        _pauseMenu.SetActive(false);
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape) && State == GameState.Paused)
+        {
+            State = TurnBeforePause;
+            Time.timeScale = 1f;
+            _pauseMenu.SetActive(false);
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && State != GameState.Paused)
+        {
+            TurnBeforePause = State;
+            State = GameState.Paused;
+            Time.timeScale = 0f;
+
+            _pauseMenu.SetActive(true);
+
+            return;
+        }
+
         if (_turnsCount >= 2)
         {
             State = GameState.Simulating;

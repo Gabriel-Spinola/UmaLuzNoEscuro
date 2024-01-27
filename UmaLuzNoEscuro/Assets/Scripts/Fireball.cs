@@ -15,6 +15,11 @@ public class Fireball : MonoBehaviour
     [HideInInspector] public float Damage;
     [HideInInspector] public Vector3 Direction;
 
+    private void Start()
+    {
+        Debug.Log("fireball tag: " + gameObject.tag);
+    }
+
     private void Update()
     {
         transform.Translate(Direction * _projectileSpeed * Time.deltaTime);
@@ -22,6 +27,7 @@ public class Fireball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Fireball from " + gameObject.tag);
         Collider[] explosionCollisions = Physics.OverlapSphere(
             collision.transform.position,
             _explosionRadius,
@@ -40,7 +46,8 @@ public class Fireball : MonoBehaviour
                 main.stopAction = ParticleSystemStopAction.Destroy;
                 particle.Play();
 
-                explosionCollisions[i].GetComponent<IDamageable>()?.TakeDamage(Damage);
+                explosionCollisions[i].GetComponent<IDamageable>()?.TakeDamage(Damage, gameObject.tag);
+                Destroy(gameObject);
             }
         }
 

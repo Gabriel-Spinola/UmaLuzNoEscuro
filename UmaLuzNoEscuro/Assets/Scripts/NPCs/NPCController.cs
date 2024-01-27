@@ -68,7 +68,7 @@ public class NPCController : MonoBehaviour, IDamageable
             return;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && GameManager.State == GameState.Turns)
         {
             AssignTask();
         }
@@ -91,8 +91,16 @@ public class NPCController : MonoBehaviour, IDamageable
 
             if (GameTagsFields.AllTags.Contains(collidedWithTag) && collidedWithTag != transform.tag)
             {
-                Agent.destination = Vector3.zero;
+                if (_attackTarget is null || _attackTarget is "")
+                {
+                    Agent.destination = Vector3.zero;
+                }
+                else if (_attackTarget != collidedWithTag)
+                {
+                    return;
+                }
 
+                Agent.destination = transform.position;
                 Attack(collision[i]);
             }
         }
@@ -105,7 +113,9 @@ public class NPCController : MonoBehaviour, IDamageable
             return;
         }
 
+        Debug.Log("Will start the attack");
         await AttackCooldown(_attackCooldown / 2f);
+        Debug.Log("Attacked");
         GetComponent<IAttacker>().Attack(target, Card.Info.AttackDamage);
         await AttackCooldown(_attackCooldown / 2f);
     }
@@ -181,7 +191,7 @@ public class NPCController : MonoBehaviour, IDamageable
         Gizmos.DrawWireSphere(transform.position, _attackRange);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, string attackTag)
     {
         _currentHealth -= damage;
 

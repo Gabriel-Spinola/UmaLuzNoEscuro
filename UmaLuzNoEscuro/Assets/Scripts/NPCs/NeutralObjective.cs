@@ -51,7 +51,7 @@ public class NeutralObjective : MonoBehaviour, IDamageable
         var enemyDirection = target.transform.position - transform.position;
         var projectile = Instantiate(_projectile, transform.position, transform.rotation)
             .GetComponent<Fireball>();
-        projectile.Damage = _attackDamage;  
+        projectile.Damage = _attackDamage;
         projectile.Direction = enemyDirection;
 
         await AttackCooldown();
@@ -66,12 +66,15 @@ public class NeutralObjective : MonoBehaviour, IDamageable
         _canAttack = true;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, string attackerTag)
     {
+        Debug.Log("Attacked by: " + attackerTag);
         _currentHealth -= damage;
+        Debug.Log(_currentHealth);
 
         if (_currentHealth <= 0)
         {
+            Debug.Log("Killed by " + attackerTag);
             Die();
         }
     }
