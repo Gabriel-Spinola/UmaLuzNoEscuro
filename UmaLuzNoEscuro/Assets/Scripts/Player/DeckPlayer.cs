@@ -11,10 +11,10 @@ public class DeckPlayer : MonoBehaviour
     [SerializeField] private uint _startHealth;
     [SerializeField] private LayerMask _whatIsAssignable;
 
-    public readonly List<Card> Deck = new(MAX_CARDS);
+    public readonly Dictionary<Turns, List<Card>> Deck = new();
     private readonly Dictionary<Turns, uint> _currentHealth = new();
     private readonly Dictionary<Turns, uint> _currentMoney = new();
-    
+
     private PlayerUI _ui;
     private Card _selectedCard;
 
@@ -31,6 +31,9 @@ public class DeckPlayer : MonoBehaviour
 
     private void Start()
     {
+        Deck.Add(Turns.Player1, new List<Card>(MAX_CARDS));
+        Deck.Add(Turns.Player2, new List<Card>(MAX_CARDS));
+
         _currentMoney.Add(Turns.Player1, _startMoney);
         _currentMoney.Add(Turns.Player2, _startMoney);
 
@@ -58,7 +61,7 @@ public class DeckPlayer : MonoBehaviour
 
                 _selectedCard.Cast(hitInfo.point + randomOffset);
                 _currentMoney[GameManager.CurrentTurn] -= _selectedCard.Info.Cost;
-                Deck.Remove(_selectedCard);
+                Deck[GameManager.CurrentTurn].Remove(_selectedCard);
             }
 
             _selectedCard = null;
@@ -72,7 +75,7 @@ public class DeckPlayer : MonoBehaviour
 
         _buttonRef.onClick.AddListener(delegate { HandleCast(card); });
         card.gameObject.SetActive(true);
-        Deck.Add(card);
+        Deck[GameManager.CurrentTurn].Add(card);
     }
 
     private void SetupDeck()
@@ -91,7 +94,7 @@ public class DeckPlayer : MonoBehaviour
                 continue;
             }
 
-            if (Deck.Contains(card))
+            if (Deck[GameManager.CurrentTurn].Contains(card))
             {
                 card.gameObject.SetActive(true);
 
@@ -118,7 +121,8 @@ public class DeckPlayer : MonoBehaviour
         _isWaitingForCastPosition = true;
     }
 
-    private void SetupUI() {
+    private void SetupUI()
+    {
         _ui.MaxHealth = _startHealth;
     }
 
@@ -127,9 +131,9 @@ public class DeckPlayer : MonoBehaviour
         _ui.CurrentHealth = _currentHealth[GameManager.CurrentTurn];
         _ui.CurrentMoney = _currentMoney[GameManager.CurrentTurn];
 
-        for (int i = 0; i < Deck.Count; i++)
+        for (int i = 0; i < Deck[GameManager.CurrentTurn].Count; i++)
         {
-            Deck[i].transform.position = _ui.CardSlots[i].transform.position;
+            Deck[GameManager.CurrentTurn][i].transform.position = _ui.CardSlots[i].transform.position;
         }
     }
 

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540ddd65f90ddcf46a1ff3d718b48d55, type: 3}
   m_Name: Ranged
   m_EditorClassIdentifier: 
-  CardName: 
-  Cost: 0
+  CardName: Chupa Cu
+  Cost: 2
   CardType: 0
-  WorldObject: {fileID: 0}
-  Health: 0
-  AttackDamage: 0
+  WorldObject: {fileID: 5697698141528354411, guid: bff69ead6239a7040831174ec6e81f2b,
+    type: 3}
+  Health: 2
+  AttackDamage: 2

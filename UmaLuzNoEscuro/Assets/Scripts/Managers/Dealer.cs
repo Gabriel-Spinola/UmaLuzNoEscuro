@@ -17,7 +17,9 @@ public class Dealer : MonoBehaviour
 
     public void DrawRandomCard()
     {
-        if (_cardPlayer.Deck.Count >= _cardPlayer.Deck.Capacity)
+        var deck = _cardPlayer.Deck[GameManager.CurrentTurn];
+
+        if (deck.Count >= deck.Capacity)
         {
             // TODO - Add out of space popup
             return;
