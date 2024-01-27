@@ -23,7 +23,6 @@ public class Fireball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided with, " + collision.gameObject.name);
         Collider[] explosionCollisions = Physics.OverlapSphere(
             collision.transform.position,
             _explosionRadius,
@@ -32,7 +31,6 @@ public class Fireball : MonoBehaviour
 
         for (int i = 0; i < explosionCollisions.Length; i++)
         {
-            Debug.Log(explosionCollisions.Length);
             string collidedWithTag = explosionCollisions[i].tag;
 
             if (GameTagsFields.AllTags.Contains(collidedWithTag) && collidedWithTag != transform.tag)
