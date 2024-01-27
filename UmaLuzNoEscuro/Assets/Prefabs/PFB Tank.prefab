@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1614501493512489152
 MeshFilter:
@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 0}
-  _attackRange: 1.67
-  _attackCooldown: 4
+  _attackRange: 1.5
+  _attackCooldown: 8
   _assignable:
     serializedVersion: 2
     m_Bits: 8
