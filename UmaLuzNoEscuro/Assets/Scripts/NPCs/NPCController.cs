@@ -104,13 +104,6 @@ public class NPCController : MonoBehaviour, IDamageable
             return;
         }
 
-        // var enemyDirection = transform.position - target.transform.position;
-        // var projectile = Instantiate(_fireball, transform.position, transform.rotation)
-        //     .GetComponent<Fireball>();
-
-        // projectile.Damage = Card.Info.AttackDamage;
-        // projectile.Direction = enemyDirection;
-        
         target.GetComponent<IDamageable>()?.TakeDamage(Card.Info.AttackDamage);
         await AttackCooldown();
     }
