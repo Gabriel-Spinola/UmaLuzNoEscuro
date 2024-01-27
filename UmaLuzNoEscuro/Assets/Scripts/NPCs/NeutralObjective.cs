@@ -51,6 +51,8 @@ public class NeutralObjective : MonoBehaviour, IDamageable
         var enemyDirection = target.transform.position - transform.position;
         var projectile = Instantiate(_projectile, transform.position, transform.rotation)
             .GetComponent<Fireball>();
+
+        projectile.tag = gameObject.tag;
         projectile.Damage = _attackDamage;
         projectile.Direction = enemyDirection;
 

@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Transactions;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -27,6 +28,11 @@ public class Fireball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == gameObject.tag)
+        {
+            return;
+        }
+
         Debug.Log("Fireball from " + gameObject.tag);
         Collider[] explosionCollisions = Physics.OverlapSphere(
             collision.transform.position,
