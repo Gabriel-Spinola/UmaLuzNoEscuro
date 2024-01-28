@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 0}
-  _attackRange: 4
-  _attackCooldown: 4
+  _attackRange: 5
+  _attackCooldown: 2
   _assignable:
     serializedVersion: 2
     m_Bits: 8

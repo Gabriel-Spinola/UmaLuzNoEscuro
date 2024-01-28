@@ -267,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Card: {fileID: 0}
   _attackRange: 3.6
-  _attackCooldown: 6
+  _attackCooldown: 2
   _assignable:
     serializedVersion: 2
     m_Bits: 8
@@ -408,6 +408,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ccff4889ddd4b56429fa4c52f9dc2cc1, type: 2}
+    - target: {fileID: -6702282993426141073, guid: 0de24a3ff721994439478b065adc6ed1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9f37c6840f8ed8e4d95d9f66f8c3ad11, type: 2}
+    - target: {fileID: 443413717285206882, guid: 0de24a3ff721994439478b065adc6ed1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e379fd06df70624cbeb8d09088095cf, type: 2}
     - target: {fileID: 919132149155446097, guid: 0de24a3ff721994439478b065adc6ed1,
         type: 3}
       propertyPath: m_Name

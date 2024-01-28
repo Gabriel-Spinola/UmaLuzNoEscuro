@@ -17,5 +17,9 @@ MonoBehaviour:
   CardType: 2
   WorldObject: {fileID: 7745283007119916586, guid: 0d32f3a17c593434d911feeb755b256f,
     type: 3}
+<<<<<<< Updated upstream
   Health: 8
+=======
+  Health: 10
+>>>>>>> Stashed changes
   AttackDamage: 2
