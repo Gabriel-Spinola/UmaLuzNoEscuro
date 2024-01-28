@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0995785ad6acb5c4eae674caf64acd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Info: {fileID: 11400000, guid: 757151f58cc3e0f47a88a114a260798c, type: 2}
+  Info: {fileID: 11400000, guid: f7cad85d5cd4dc444949359d71de9b06, type: 2}
   _TMP_damage: {fileID: 8514909550865262253}
   _TMP_health: {fileID: 9097228389911567295}
   Owner: 1

@@ -18,4 +18,4 @@ MonoBehaviour:
   WorldObject: {fileID: 1740270565804338574, guid: b2c282cb4aa1e2d4092e539ad9420b74,
     type: 3}
   Health: 5
-  AttackDamage: 2
+  AttackDamage: 4

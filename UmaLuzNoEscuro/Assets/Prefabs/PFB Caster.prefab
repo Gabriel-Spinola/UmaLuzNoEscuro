@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 0}
-  _attackRange: 5
+  _attackRange: 10
   _attackCooldown: 3
   _assignable:
     serializedVersion: 2
