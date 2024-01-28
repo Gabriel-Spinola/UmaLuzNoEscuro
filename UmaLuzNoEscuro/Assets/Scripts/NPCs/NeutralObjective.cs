@@ -70,13 +70,10 @@ public class NeutralObjective : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage, string attackerTag)
     {
-        Debug.Log("Attacked by: " + attackerTag);
         _currentHealth -= damage;
-        Debug.Log(_currentHealth);
 
         if (_currentHealth <= 0)
         {
-            Debug.Log("Killed by " + attackerTag);
             Die();
         }
     }

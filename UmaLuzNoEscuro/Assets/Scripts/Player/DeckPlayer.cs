@@ -142,3 +142,4 @@ public class DeckPlayer : MonoBehaviour
         GameManager.EndTurnEvent -= SetupDeck;
     }
 }
+ 
