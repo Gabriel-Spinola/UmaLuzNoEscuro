@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 0}
-  _attackRange: 3.6
+  _attackRange: 4
   _attackCooldown: 2
   _assignable:
     serializedVersion: 2

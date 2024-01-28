@@ -395,11 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectile: {fileID: 5661047731620770203, guid: 38bb956679757f44eb9b3b4946c3a97d,
     type: 3}
-<<<<<<< Updated upstream
   _mAnimator: {fileID: 3444761960610172020}
-=======
-  _mAnimator: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!136 &7449380322404227803
 CapsuleCollider:
   m_ObjectHideFlags: 0
