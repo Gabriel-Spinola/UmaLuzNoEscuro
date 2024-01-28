@@ -197,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectile: {fileID: 919132149155446097, guid: 0d3ea414ddca59b4280f44809e1753d9,
     type: 3}
-  _mAnimator: {fileID: 0}
+  _mAnimator: {fileID: 8264471347988470779}
 --- !u!1 &6459869674019500055
 GameObject:
   m_ObjectHideFlags: 0
