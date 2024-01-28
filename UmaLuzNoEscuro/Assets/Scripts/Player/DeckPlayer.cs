@@ -1,14 +1,14 @@
-using System;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.VFX;
 
 [RequireComponent(typeof(PlayerUI))]
 public class DeckPlayer : MonoBehaviour
 {
     private const int MAX_CARDS = 7;
+
+    public static bool IsLightningAttackHappening = false;
 
     [Header("References")]
     [SerializeField] private PlayerController _playerController;
@@ -77,15 +77,12 @@ public class DeckPlayer : MonoBehaviour
     public void LightningAttack()
     {
         var targetPlayer = GameManager.CurrentTurn == Turns.Player1 ? Turns.Player2 : Turns.Player1;
+        var particleSystem = GameManager.CurrentTurn == Turns.Player1 
+            ? _player1Lightning.GetComponent<ParticleSystem>() 
+            : _player2Lightning.GetComponent<ParticleSystem>();
 
-        if (GameManager.CurrentTurn == Turns.Player1)
-        {
-            _player1Lightning.GetComponent<ParticleSystem>().Play();
-        }
-        else
-        {
-            _player2Lightning.GetComponent<ParticleSystem>().Play();
-        }
+        particleSystem.Play();
+        IsLightningAttackHappening= particleSystem.isPlaying;
 
         _playerController.CurrentHealth[targetPlayer] -= _playerController.LightningDamage;
         _playerController.LightningPower[GameManager.CurrentTurn] -= _playerController.LightningAttackCost;
@@ -105,8 +102,9 @@ public class DeckPlayer : MonoBehaviour
 
     private void SetupDeck()
     {
-        if (GameManager.GlobalTurnsCount >= 1) {
-            _playerController.LightningPower[GameManager.CurrentTurn] += GameManager.GlobalTurnsCount + 2; 
+        if (GameManager.GlobalTurnsCount >= 1)
+        {
+            _playerController.LightningPower[GameManager.CurrentTurn] += GameManager.GlobalTurnsCount + 2;
         }
 
         for (int i = 0; i < transform.childCount; i++)

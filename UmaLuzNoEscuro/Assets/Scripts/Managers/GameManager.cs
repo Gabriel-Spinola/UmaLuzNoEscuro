@@ -66,9 +66,14 @@ public class GameManager : MonoBehaviour
         _pauseMenu.SetActive(false);
     }
 
-    private void Update()
+    private async void Update()
     {
         GlobalTurnsCount++;
+
+        if (DeckPlayer.IsLightningAttackHappening)
+        {
+            await ActiveAndDeactivateLights();
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape) && State == GameState.Paused)
         {
@@ -178,6 +183,21 @@ public class GameManager : MonoBehaviour
         {
             _simulationLightning.SetActive(false);
         }
+    }
+
+    public async Task ActiveAndDeactivateLights()
+    {
+        _turn1Lightning.SetActive(false);
+        _turn2Lightning.SetActive(false);
+        _simulationLightning.SetActive(false);
+
+        await Task.Delay(1000);
+
+        _turn1Lightning.SetActive(true);
+        _turn2Lightning.SetActive(true);
+        _simulationLightning.SetActive(true);
+        
+        DeckPlayer.IsLightningAttackHappening = false;
     }
 
     public static void EndSimulation() => State = GameState.Turns;
