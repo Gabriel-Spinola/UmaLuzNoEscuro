@@ -8,23 +8,30 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     public Transform[] CardSlots;
+    [SerializeField] private PlayerController _playerController;
 
     [SerializeField] private TMP_Text _TMP_currentMoney;
     [SerializeField] private Slider _healthBar;
-
-    [HideInInspector] public uint CurrentMoney;
-    [HideInInspector] public uint CurrentHealth;
-    [HideInInspector] public uint MaxHealth;
+    [SerializeField] private GameObject _lightningCard;
 
     private void Start()
     {
-        _healthBar.maxValue = MaxHealth;
+        _healthBar.maxValue = _playerController.StartHealth;
         _healthBar.minValue = 0u;
     }
 
     private void Update()
     {
-        _TMP_currentMoney.text = CurrentMoney.ToString();
-        _healthBar.value = CurrentHealth;
+        if (_playerController.LightningPower[GameManager.CurrentTurn] >= _playerController.LightningAttackThreshold)
+        {
+            _lightningCard.SetActive(true);
+        }
+        else if (_lightningCard.activeSelf)
+        {
+            _lightningCard.SetActive(false);
+        }
+
+        _TMP_currentMoney.text = _playerController.LightningPower[GameManager.CurrentTurn].ToString();
+        _healthBar.value = _playerController.CurrentHealth[GameManager.CurrentTurn];
     }
 }

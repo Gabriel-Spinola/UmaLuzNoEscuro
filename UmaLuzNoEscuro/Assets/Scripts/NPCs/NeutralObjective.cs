@@ -74,7 +74,7 @@ public class NeutralObjective : MonoBehaviour, IDamageable
 
         if (_currentHealth <= 0)
         {
-            Die();
+            Die(); 
         }
     }
 

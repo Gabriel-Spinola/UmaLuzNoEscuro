@@ -22,12 +22,14 @@ public class NPCController : MonoBehaviour, IDamageable
     [Header("Assignment")]
     [SerializeField] private LayerMask _assignable;
     [SerializeField] private Material _toBeAssignedMaterial;
-    [SerializeField] private Material _defaultMaterial;
+    [SerializeField] private Material _purpleTeamMaterial;
+    [SerializeField] private Material _redTeamMaterial;
 
     [HideInInspector] public NavMeshAgent Agent;
 
     private float _currentHealth;
 
+    private Material _defaultMaterial;
     private MeshRenderer _meshRenderer;
     private string _attackTarget;
 
@@ -45,6 +47,9 @@ public class NPCController : MonoBehaviour, IDamageable
     private void Start()
     {
         _currentHealth = Card.Info.Health;
+
+        _defaultMaterial = GameManager.CurrentTurn == Turns.Player1 ? _purpleTeamMaterial : _redTeamMaterial;
+        _meshRenderer.materials[^1] = _defaultMaterial;
     }
 
     private void Update()
@@ -197,6 +202,9 @@ public class NPCController : MonoBehaviour, IDamageable
 
         if (_currentHealth <= 0)
         {
+            var targetPlayer = Card.Owner == Turns.Player1 ? Turns.Player2 : Turns.Player1;
+
+            FindObjectOfType<PlayerController>().AddLightningPoints(targetPlayer, Card.Info.Cost);
             Die();
         }
     }

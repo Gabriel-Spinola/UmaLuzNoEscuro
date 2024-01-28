@@ -11,14 +11,9 @@ public class Fireball : MonoBehaviour
     [Header("Stats")]
     [SerializeField, Range(.1f, 5f)] private float _explosionRadius;
     [SerializeField] private float _projectileSpeed;
-
+    
     [HideInInspector] public float Damage;
     [HideInInspector] public Vector3 Direction;
-
-    private void Start()
-    {
-        Debug.Log("fireball tag: " + gameObject.tag);
-    }
 
     private void Update()
     {
