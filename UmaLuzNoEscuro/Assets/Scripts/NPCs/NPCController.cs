@@ -24,13 +24,13 @@ public class NPCController : MonoBehaviour, IDamageable
     [SerializeField] private Material _toBeAssignedMaterial;
     [SerializeField] private Material _purpleTeamMaterial;
     [SerializeField] private Material _redTeamMaterial;
+    [SerializeField] private MeshRenderer _meshRenderer;
 
     [HideInInspector] public NavMeshAgent Agent;
 
     private float _currentHealth;
 
     private Material _defaultMaterial;
-    private MeshRenderer _meshRenderer;
     private string _attackTarget;
 
     private bool _isWaitingForAssignment = false;
@@ -40,8 +40,6 @@ public class NPCController : MonoBehaviour, IDamageable
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
-
-        _meshRenderer = GetComponent<MeshRenderer>();
     }
 
     private void Start()
@@ -49,7 +47,7 @@ public class NPCController : MonoBehaviour, IDamageable
         _currentHealth = Card.Info.Health;
 
         _defaultMaterial = GameManager.CurrentTurn == Turns.Player1 ? _purpleTeamMaterial : _redTeamMaterial;
-        _meshRenderer.materials[^1] = _defaultMaterial;
+        _meshRenderer.material = _defaultMaterial;
     }
 
     private void Update()
