@@ -589,10 +589,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.5559925
+  m_Height: 1.8001068
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.09000003, y: 0.7826294, z: 0.19999999}
 --- !u!195 &3246920219687921645
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -652,6 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackParticles: {fileID: 550818725255500540, guid: 1ab1a323824f3184785774af29fc4230,
     type: 3}
+  _mAnimator: {fileID: 0}
 --- !u!95 &5446012278762395039
 Animator:
   serializedVersion: 5
@@ -685,7 +686,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c485381519b97448b99617ba4c09db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mAnimator: {fileID: 5446012278762395039}
 --- !u!1 &8164370271046185004
 GameObject:
   m_ObjectHideFlags: 0
