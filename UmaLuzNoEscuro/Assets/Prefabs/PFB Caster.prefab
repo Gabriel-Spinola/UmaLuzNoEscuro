@@ -375,7 +375,8 @@ MonoBehaviour:
     m_Bits: 8
   _toBeAssignedMaterial: {fileID: 2100000, guid: 7514c2501bd393c44b4be9aa1aa014f8,
     type: 2}
-  _defaultMaterial: {fileID: 0}
+  _purpleTeamMaterial: {fileID: 0}
+  _redTeamMaterial: {fileID: 0}
   Agent: {fileID: 0}
 --- !u!114 &7048548742029927506
 MonoBehaviour:
@@ -426,7 +427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c485381519b97448b99617ba4c09db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mAnimator: {fileID: 4012911445678881814}
 --- !u!95 &4419974142321957567
 Animator:
   serializedVersion: 5
@@ -436,8 +436,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5691124484755608108}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 60808ea6d46bf27468606071b25cb5ad, type: 3}
+  m_Controller: {fileID: 9100000, guid: dda4f5acc1cd62f4f8b200753f5451c3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1440,7 +1440,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233211928424758967}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: dda4f5acc1cd62f4f8b200753f5451c3, type: 2}
   m_CullingMode: 0

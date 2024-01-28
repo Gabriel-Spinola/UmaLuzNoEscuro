@@ -3,6 +3,11 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour, IAttacker
 {
     [SerializeField] private ParticleSystem _attackParticles;
+    [SerializeField] private Animator _mAnimator;
+
+    private void Start() {
+        _mAnimator = GetComponent<Animator>();
+    }
 
     public void Attack(Collider target, float damage)
     {
@@ -11,6 +16,7 @@ public class MeleeAttack : MonoBehaviour, IAttacker
         var main = particle.main;
 
         main.stopAction = ParticleSystemStopAction.Destroy;
+        _mAnimator.SetTrigger("Attack");
         particle.Play();
 
         if (target.TryGetComponent<IDamageable>(out var damageable))

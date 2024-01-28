@@ -5,19 +5,20 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class NPCAnimation : MonoBehaviour
 {
-    [SerializeField] private Animator _mAnimator;
+    private Animator _mAnimator;
     private NPCController _controller;
 
     // Start is called before the first frame update
     void Start()
     {
+        _mAnimator = GetComponent<Animator>();
         _controller = GetComponent<NPCController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_controller.Agent.acceleration >= Mathf.Epsilon) {
+        if (_controller.Agent.acceleration >= 0.1f) {
                 _mAnimator.SetBool("Idle", false);
                 _mAnimator.SetBool("Walk", true);
         } else {
