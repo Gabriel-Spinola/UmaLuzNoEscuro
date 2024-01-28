@@ -6,6 +6,7 @@ using UnityEngine;
 public class NeutralObjective : MonoBehaviour, IDamageable
 {
     [SerializeField] private LayerMask _assignable;
+    [SerializeField] private Transform _mouthTransform;
     [SerializeField] private GameObject _projectile;
 
     [SerializeField, Range(.1f, 15f)] private float _attackRange;
@@ -52,7 +53,7 @@ public class NeutralObjective : MonoBehaviour, IDamageable
 
         _mAnimator.SetTrigger("Attack");
         var enemyDirection = target.transform.position - transform.position;
-        var projectile = Instantiate(_projectile, transform.position, transform.rotation)
+        var projectile = Instantiate(_projectile, _mouthTransform.position, transform.rotation)
             .GetComponent<Fireball>();
 
         projectile.tag = gameObject.tag;

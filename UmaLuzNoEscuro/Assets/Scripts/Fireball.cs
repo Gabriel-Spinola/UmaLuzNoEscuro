@@ -1,27 +1,41 @@
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Fireball : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private LayerMask _whatIsAssignable;
     [SerializeField] private ParticleSystem _explosionParticles;
+    [SerializeField] private VisualEffect _ball;
 
     [Header("Stats")]
     [SerializeField, Range(.1f, 5f)] private float _explosionRadius;
     [SerializeField] private float _projectileSpeed;
-    
+
     [HideInInspector] public float Damage;
     [HideInInspector] public Vector3 Direction;
 
+    private void Awake()
+    {
+        _ball.Play();
+    }
+
     private void Update()
     {
+        _ball.Play();
+        _ball.SendEvent("OnPlay");
         transform.Translate(Direction * _projectileSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.GetInstanceID() == gameObject.GetInstanceID())
+        {
+            return;
+        }
+
         if (collision.gameObject.tag == gameObject.tag)
         {
             return;
