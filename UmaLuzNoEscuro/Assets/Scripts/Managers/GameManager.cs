@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
 
     private int _turnsCount = 0;
 
+    public static int GlobalTurnsCount = 0;
+
     private void Awake()
     {
         _player1Cam.Priority = 1;
@@ -68,6 +70,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        GlobalTurnsCount++;
+
         if (Input.GetKeyDown(KeyCode.Escape) && State == GameState.Paused)
         {
             State = TurnBeforePause;
