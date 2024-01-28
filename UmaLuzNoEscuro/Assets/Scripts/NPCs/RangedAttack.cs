@@ -6,6 +6,7 @@ public class RangedAttack : MonoBehaviour, IAttacker
 
     public void Attack(Collider target, float damage)
     {
+        _mAnimator.SetTrigger("Attack");
         var projectile = Instantiate(_projectile, transform.position, transform.rotation)
             .GetComponent<Fireball>();
 
