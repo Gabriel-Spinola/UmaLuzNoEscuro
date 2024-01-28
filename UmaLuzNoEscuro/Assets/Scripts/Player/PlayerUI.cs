@@ -11,6 +11,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private PlayerController _playerController;
 
     [SerializeField] private TMP_Text _TMP_currentMoney;
+    [SerializeField] private TMP_Text _TMP_lightningCost;
     [SerializeField] private Slider _healthBar;
     [SerializeField] private GameObject _lightningCard;
 
@@ -31,6 +32,12 @@ public class PlayerUI : MonoBehaviour
             _lightningCard.SetActive(false);
         }
 
+        if (GameManager.State == GameState.Simulating)
+        {
+            _lightningCard.SetActive(false);
+        }
+
+        _TMP_lightningCost.text = _playerController.LightningAttackThreshold.ToString();
         _TMP_currentMoney.text = _playerController.LightningPower[GameManager.CurrentTurn].ToString();
         _healthBar.value = _playerController.CurrentHealth[GameManager.CurrentTurn];
     }

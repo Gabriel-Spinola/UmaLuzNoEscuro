@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerUI))]
 public class DeckPlayer : MonoBehaviour
 {
-    private const int MAX_CARDS = 7;
+    private const int MAX_CARDS = 6;
 
     public static bool IsLightningAttackHappening = false;
 
@@ -150,6 +150,7 @@ public class DeckPlayer : MonoBehaviour
         for (int i = 0; i < Deck[GameManager.CurrentTurn].Count; i++)
         {
             Deck[GameManager.CurrentTurn][i].transform.position = _ui.CardSlots[i].transform.position;
+            Deck[GameManager.CurrentTurn][i].transform.rotation = _ui.CardSlots[i].transform.rotation;
         }
     }
 
