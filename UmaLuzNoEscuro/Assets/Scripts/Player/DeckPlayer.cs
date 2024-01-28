@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(PlayerUI))]
 public class DeckPlayer : MonoBehaviour
@@ -13,6 +14,9 @@ public class DeckPlayer : MonoBehaviour
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private LayerMask _whatIsAssignable;
     [SerializeField] private CinemachineImpulseSource _lightningImpulseSource;
+
+    [SerializeField] private GameObject _player1Lightning;
+    [SerializeField] private GameObject _player2Lightning;
 
     public readonly Dictionary<Turns, List<Card>> Deck = new();
 
@@ -73,6 +77,15 @@ public class DeckPlayer : MonoBehaviour
     public void LightningAttack()
     {
         var targetPlayer = GameManager.CurrentTurn == Turns.Player1 ? Turns.Player2 : Turns.Player1;
+
+        if (GameManager.CurrentTurn == Turns.Player1)
+        {
+            _player1Lightning.GetComponent<ParticleSystem>().Play();
+        }
+        else
+        {
+            _player2Lightning.GetComponent<ParticleSystem>().Play();
+        }
 
         _playerController.CurrentHealth[targetPlayer] -= _playerController.LightningDamage;
         _playerController.LightningPower[GameManager.CurrentTurn] -= _playerController.LightningAttackCost;

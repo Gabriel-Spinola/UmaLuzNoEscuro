@@ -36,5 +36,5 @@ MonoBehaviour:
   featureEnabledMeshSkewing: 1
   featureEnabledShaderAccuracyHigh: 1
   pluginVersion: 1960
-  _DummyMaterial: {fileID: 2100000, guid: 5c64248b659fd684f80212b51fe83d49, type: 2}
-  _BeamShader: {fileID: 4800000, guid: 3300944206140824fb79b519f864ec43, type: 3}
+  _DummyMaterial: {fileID: 2100000, guid: a470d9f858292f24e84823cdc98e5e62, type: 2}
+  _BeamShader: {fileID: 4800000, guid: 3efca4a6ed6b3544691cfb9962b3b445, type: 3}

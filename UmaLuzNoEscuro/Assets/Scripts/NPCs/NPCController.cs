@@ -121,7 +121,7 @@ public class NPCController : MonoBehaviour, IDamageable
         Debug.Log("Will start the attack");
         await AttackCooldown(_attackCooldown / 2f);
         Debug.Log("Attacked");
-        GetComponent<IAttacker>().Attack(target, Card.Info.AttackDamage);
+    GetComponent<IAttacker>().Attack(target, Card.Info.AttackDamage);
         await AttackCooldown(_attackCooldown / 2f);
     }
 

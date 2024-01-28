@@ -6,7 +6,6 @@ public class RangedAttack : MonoBehaviour, IAttacker
 
     public void Attack(Collider target, float damage)
     {
-        Debug.Log("instati");
         var projectile = Instantiate(_projectile, transform.position, transform.rotation)
             .GetComponent<Fireball>();
 
