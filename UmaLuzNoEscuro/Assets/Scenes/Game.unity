@@ -11772,10 +11772,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardPlayer: {fileID: 861700343}
   _possibleCards:
-  - {fileID: 4967688438536956511, guid: ef66a9e92453f6d4989853642d102a61, type: 3}
-  - {fileID: 151425213095178440, guid: 61e8516b769af78498c6657d5104e8b7, type: 3}
-  - {fileID: 2617459163132086082, guid: 31a4aa5a08d44084dabb62108abf006d, type: 3}
-  - {fileID: 4138748041062494471, guid: 0e3b4d571fd1bf442ad1def2acb7ece9, type: 3}
+  - {fileID: 4057861125182260536, guid: ef66a9e92453f6d4989853642d102a61, type: 3}
+  - {fileID: 6228526860085913346, guid: 61e8516b769af78498c6657d5104e8b7, type: 3}
+  - {fileID: 4574280770991656994, guid: 31a4aa5a08d44084dabb62108abf006d, type: 3}
+  - {fileID: 4268514740405841182, guid: 0e3b4d571fd1bf442ad1def2acb7ece9, type: 3}
 --- !u!114 &1743572931
 MonoBehaviour:
   m_ObjectHideFlags: 0
