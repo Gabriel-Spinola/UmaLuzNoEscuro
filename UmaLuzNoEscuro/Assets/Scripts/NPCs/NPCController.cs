@@ -16,7 +16,7 @@ public class NPCController : MonoBehaviour, IDamageable
     [HideInInspector] public Card Card;
 
     [Header("Stats")]
-    [SerializeField, Range(0.1f, 5f)] private float _attackRange;
+    [SerializeField, Range(0.1f, 10f)] private float _attackRange;
     [SerializeField] private float _attackCooldown;
 
     [Header("Assignment")]
