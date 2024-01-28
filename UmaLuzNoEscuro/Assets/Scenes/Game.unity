@@ -2592,8 +2592,6 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4215789226532830, guid: 7f931d4b5c97d194d8726ddf5acdd440, type: 3}
-<<<<<<< Updated upstream
-=======
       propertyPath: m_LocalScale.x
       value: 0.36302575
       objectReference: {fileID: 0}
@@ -2606,7 +2604,6 @@ PrefabInstance:
       value: 0.29975107
       objectReference: {fileID: 0}
     - target: {fileID: 4215789226532830, guid: 7f931d4b5c97d194d8726ddf5acdd440, type: 3}
->>>>>>> Stashed changes
       propertyPath: m_LocalPosition.x
       value: 0.017020768
       objectReference: {fileID: 0}
@@ -2792,10 +2789,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-<<<<<<< Updated upstream
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-=======
     m_RemovedGameObjects:
     - {fileID: 7783536707511897281, guid: 7f931d4b5c97d194d8726ddf5acdd440, type: 3}
     - {fileID: 3534522700895236943, guid: 7f931d4b5c97d194d8726ddf5acdd440, type: 3}
@@ -2856,7 +2849,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 698568254}
->>>>>>> Stashed changes
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f931d4b5c97d194d8726ddf5acdd440, type: 3}
 --- !u!4 &301853167 stripped
@@ -4485,9 +4477,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d91b89f617f2e74cac41d70ffd39cdb, type: 3}
-<<<<<<< Updated upstream
---- !u!1 &501549325
-=======
 --- !u!1 &505139186
 GameObject:
   m_ObjectHideFlags: 0
@@ -4600,7 +4589,6 @@ VisualEffect:
     m_Bool:
       m_Array: []
 --- !u!1 &508254374
->>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
