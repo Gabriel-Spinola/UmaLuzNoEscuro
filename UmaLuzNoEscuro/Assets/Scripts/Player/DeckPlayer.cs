@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
@@ -44,24 +45,17 @@ public class DeckPlayer : MonoBehaviour
     {
         UpdateGUI();
 
-        if (_playerController.LightningPower[GameManager.CurrentTurn] <= _playerController.LightningAttackThreshold)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                LightningAttack();
-            }
-        }
-
         if (!_isWaitingForCastPosition)
         {
             return;
         }
 
+    Debug.Log("Waiting for assigment");
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hitInfo, _whatIsAssignable))
+            if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hitInfo, Mathf.Infinity, _whatIsAssignable))
             {
                 var randomOffset = UnityEngine.Random.insideUnitSphere * .5f;
                 randomOffset.y = 0f;
@@ -82,12 +76,13 @@ public class DeckPlayer : MonoBehaviour
 
         _playerController.CurrentHealth[targetPlayer] -= _playerController.LightningDamage;
         _playerController.LightningPower[GameManager.CurrentTurn] -= _playerController.LightningAttackCost;
-        
+
         _lightningImpulseSource.GenerateImpulse();
     }
 
     public void SetupNewCard(Card card)
     {
+    
         var _buttonRef = card.GetComponent<Button>();
 
         _buttonRef.onClick.AddListener(delegate { HandleCast(card); });
@@ -129,8 +124,10 @@ public class DeckPlayer : MonoBehaviour
     /// <param name="card">Selected card</param>
     private void HandleCast(Card card)
     {
+        Debug.Log("Handle cast");
         if (card.Info.Cost > _playerController.LightningPower[GameManager.CurrentTurn])
         {
+            Debug.Log("Failed to casrt");
             return;
         }
 
