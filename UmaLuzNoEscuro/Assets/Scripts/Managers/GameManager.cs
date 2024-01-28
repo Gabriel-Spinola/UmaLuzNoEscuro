@@ -2,8 +2,6 @@ using UnityEngine;
 using Cinemachine;
 using System;
 using Unity.AI.Navigation;
-using UnityEngine.SceneManagement;
-using UnityEditor.SceneManagement;
 using System.Threading.Tasks;
 
 public readonly struct GameTagsFields
@@ -54,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     private int _turnsCount = 0;
 
-    public static int GlobalTurnsCount = 0;
+    public static uint GlobalTurnsCount = 0;
 
     private void Awake()
     {
