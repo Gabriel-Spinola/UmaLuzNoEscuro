@@ -157,6 +157,8 @@ public class DeckPlayer : MonoBehaviour
     {
         _playerController.LightningPower[Turns.Player1] += GameManager.GlobalTurnsCount + 2;
         _playerController.LightningPower[Turns.Player2] += GameManager.GlobalTurnsCount + 2;
+        
+        _playerController.LightningAttackThreshold += GameManager.GlobalTurnsCount;
     }
 
     private void OnDestroy()
