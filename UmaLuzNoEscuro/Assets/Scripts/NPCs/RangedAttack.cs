@@ -4,6 +4,12 @@ public class RangedAttack : MonoBehaviour, IAttacker
 {
     [SerializeField] private GameObject _projectile;
 
+    [SerializeField] private Animator _mAnimator;
+
+    private void Start() {
+        _mAnimator = GetComponent<Animator>();
+    }
+
     public void Attack(Collider target, float damage)
     {
         _mAnimator.SetTrigger("Attack");
