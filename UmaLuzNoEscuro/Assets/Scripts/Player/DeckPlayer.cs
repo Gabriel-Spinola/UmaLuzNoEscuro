@@ -28,9 +28,10 @@ public class DeckPlayer : MonoBehaviour
     private void Awake()
     {
         _ui = GetComponent<PlayerUI>();
-
         SetupDeck();
+
         GameManager.EndTurnEvent += SetupDeck;
+        GameManager.EndFullTurnEvent += OnEndOfFullTurn;
     }
 
     private void Start()
@@ -92,7 +93,6 @@ public class DeckPlayer : MonoBehaviour
 
     public void SetupNewCard(Card card)
     {
-
         var _buttonRef = card.GetComponent<Button>();
 
         _buttonRef.onClick.AddListener(delegate { HandleCast(card); });
@@ -102,11 +102,6 @@ public class DeckPlayer : MonoBehaviour
 
     private void SetupDeck()
     {
-        if (GameManager.GlobalTurnsCount >= 1)
-        {
-            _playerController.LightningPower[GameManager.CurrentTurn] += GameManager.GlobalTurnsCount + 2;
-        }
-
         for (int i = 0; i < transform.childCount; i++)
         {
             if (!transform.GetChild(i).TryGetComponent<Card>(out var card))
@@ -158,8 +153,15 @@ public class DeckPlayer : MonoBehaviour
         }
     }
 
+    private void OnEndOfFullTurn()
+    {
+        _playerController.LightningPower[Turns.Player1] += GameManager.GlobalTurnsCount + 2;
+        _playerController.LightningPower[Turns.Player2] += GameManager.GlobalTurnsCount + 2;
+    }
+
     private void OnDestroy()
     {
         GameManager.EndTurnEvent -= SetupDeck;
+        GameManager.EndFullTurnEvent -= OnEndOfFullTurn;
     }
 }

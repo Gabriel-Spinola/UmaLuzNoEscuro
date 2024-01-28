@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public static GameState State = GameState.Turns;
     public static Turns CurrentTurn = Turns.Player1;
     public static event Action EndTurnEvent;
+    public static event Action EndFullTurnEvent;
     public static GameState TurnBeforePause = GameState.Turns;
 
     [Header("UI References")]
@@ -68,8 +69,6 @@ public class GameManager : MonoBehaviour
 
     private async void Update()
     {
-        GlobalTurnsCount++;
-
         if (DeckPlayer.IsLightningAttackHappening)
         {
             await ActiveAndDeactivateLights();
@@ -142,8 +141,9 @@ public class GameManager : MonoBehaviour
     {
         if (State is GameState.Simulating)
         {
+            GlobalTurnsCount++;
+            EndFullTurnEvent?.Invoke();
             EndSimulation();
-
 
             _turnsCount = 0;
             CurrentTurn = Turns.Player1;
@@ -193,10 +193,17 @@ public class GameManager : MonoBehaviour
 
         await Task.Delay(1000);
 
-        _turn1Lightning.SetActive(true);
-        _turn2Lightning.SetActive(true);
-        _simulationLightning.SetActive(true);
-        
+        if (State is GameState.Simulating)
+        {
+            _simulationLightning.SetActive(true);
+        }
+        else
+        {
+            _turn1Lightning.SetActive(CurrentTurn is Turns.Player1);
+            _turn2Lightning.SetActive(CurrentTurn is Turns.Player2);
+            _simulationLightning.SetActive(false);
+        }
+
         DeckPlayer.IsLightningAttackHappening = false;
     }
 
