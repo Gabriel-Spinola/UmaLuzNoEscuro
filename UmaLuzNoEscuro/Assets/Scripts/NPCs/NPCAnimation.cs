@@ -18,14 +18,6 @@ public class NPCAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_controller.Agent.velocity.magnitude >= Mathf.Epsilon) {
-                Debug.Log("Maior");
-                _mAnimator.SetBool("Idle", false);
-                _mAnimator.SetBool("Walk", true);
-        } else {
-            Debug.Log("Menor");
-            _mAnimator.SetBool("Walk", false);
-            _mAnimator.SetBool("Idle", true);
-        }
+        _mAnimator.SetFloat("Velocity", _controller.Agent.velocity.magnitude);
     }
 }

@@ -549,6 +549,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f659c5aa3bc2ba9468aef4eeec0e1d84, type: 2}
+  - {fileID: 2100000, guid: 76100eb1797c3314287e70cf7b118ccf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -611,8 +612,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
+  m_Height: 1.7
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &-3972991133588519917
@@ -1009,7 +1010,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b83f7ef7e5857a94babc267348aa3a5c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.043
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b83f7ef7e5857a94babc267348aa3a5c,
         type: 3}
@@ -1501,6 +1502,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.699316
       objectReference: {fileID: 0}
+    - target: {fileID: 4402545685465846272, guid: b83f7ef7e5857a94babc267348aa3a5c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d1de310997f817b42b70851dee5c571a, type: 2}
     - target: {fileID: 5048025441337412694, guid: b83f7ef7e5857a94babc267348aa3a5c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1590,6 +1596,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.1796188
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861684208665027494, guid: b83f7ef7e5857a94babc267348aa3a5c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861684208665027494, guid: b83f7ef7e5857a94babc267348aa3a5c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7078722787440015773, guid: b83f7ef7e5857a94babc267348aa3a5c,
         type: 3}

@@ -11,12 +11,12 @@ public class MeleeAttack : MonoBehaviour, IAttacker
 
     public void Attack(Collider target, float damage)
     {
+        _mAnimator.SetTrigger("Attack");
         Debug.Log("Imagina funciona");
         var particle = Instantiate(_attackParticles, transform.position, Quaternion.identity);
         var main = particle.main;
 
         main.stopAction = ParticleSystemStopAction.Destroy;
-        _mAnimator.SetTrigger("Attack");
         particle.Play();
 
         if (target.TryGetComponent<IDamageable>(out var damageable))
