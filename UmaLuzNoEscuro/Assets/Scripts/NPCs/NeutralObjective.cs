@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class NeutralObjective : MonoBehaviour, IDamageable
 {
     [SerializeField] private LayerMask _assignable;
@@ -11,13 +12,14 @@ public class NeutralObjective : MonoBehaviour, IDamageable
     [SerializeField] private float _totalHealth;
     [SerializeField] private float _attackDamage;
     [SerializeField] private float _attackCooldown;
-
+    private Animator _mAnimator;
     private float _currentHealth;
     private bool _canAttack = true;
 
     private void Start()
     {
         _currentHealth = _totalHealth;
+        _mAnimator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -48,6 +50,7 @@ public class NeutralObjective : MonoBehaviour, IDamageable
             return;
         }
 
+        _mAnimator.SetTrigger("Attack");
         var enemyDirection = target.transform.position - transform.position;
         var projectile = Instantiate(_projectile, transform.position, transform.rotation)
             .GetComponent<Fireball>();
@@ -81,6 +84,10 @@ public class NeutralObjective : MonoBehaviour, IDamageable
     private void Die()
     {
         Destroy(gameObject);
+    }
+
+    private void OnDestroy() {
+        _mAnimator.SetTrigger("Die");
     }
 
     private void OnDrawGizmos()
