@@ -7,7 +7,7 @@ public class NeutralObjective : MonoBehaviour, IDamageable
     [SerializeField] private LayerMask _assignable;
     [SerializeField] private GameObject _projectile;
 
-    [SerializeField, Range(.1f, 5f)] private float _attackRange;
+    [SerializeField, Range(.1f, 15f)] private float _attackRange;
     [SerializeField] private float _totalHealth;
     [SerializeField] private float _attackDamage;
     [SerializeField] private float _attackCooldown;

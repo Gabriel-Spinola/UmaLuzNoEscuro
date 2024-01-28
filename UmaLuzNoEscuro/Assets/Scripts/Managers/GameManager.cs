@@ -4,6 +4,7 @@ using System;
 using Unity.AI.Navigation;
 using UnityEngine.SceneManagement;
 using UnityEditor.SceneManagement;
+using System.Threading.Tasks;
 
 public readonly struct GameTagsFields
 {
@@ -39,9 +40,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
 
     [Header("Lightning")]
-    [SerializeField] private Transform _turn1Lightning;
-    [SerializeField] private Transform _turn2Lightning;
-    [SerializeField] private Transform _simulationLightning;
+    [SerializeField] private GameObject _turn1Lightning;
+    [SerializeField] private GameObject _turn2Lightning;
+    [SerializeField] private GameObject _simulationLightning;
 
     [Header("AI")]
     [SerializeField] private NavMeshSurface _navSurface;
@@ -58,6 +59,9 @@ public class GameManager : MonoBehaviour
         _player1Cam.Priority = 1;
         _player2Cam.Priority = 0;
         _simulationCam.Priority = -2;
+
+        _turn1Lightning.SetActive(CurrentTurn is Turns.Player1);
+        _turn2Lightning.SetActive(CurrentTurn is Turns.Player2);
 
         _pauseMenu.SetActive(false);
     }
@@ -127,17 +131,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void EndTurn()
+    public async void EndTurn()
     {
         if (State is GameState.Simulating)
         {
             EndSimulation();
 
+
             _turnsCount = 0;
             CurrentTurn = Turns.Player1;
             _simulationCam.Priority = -2;
             _cardPlayerObject.SetActive(true);
-
+            await TurnsLightsOn();
             return;
         }
 
@@ -149,6 +154,28 @@ public class GameManager : MonoBehaviour
         _player1Cam.Priority = (int)CurrentTurn;
         EndTurnEvent?.Invoke();
         _turnsCount++;
+
+        await TurnsLightsOn();
+    }
+
+    private async Task TurnsLightsOn()
+    {
+        await Task.Delay(600);
+
+        _turn1Lightning.SetActive(CurrentTurn is Turns.Player1);
+        _turn2Lightning.SetActive(CurrentTurn is Turns.Player2);
+
+        if (State is GameState.Simulating)
+        {
+            _simulationLightning.SetActive(true);
+
+            _turn1Lightning.SetActive(false);
+            _turn2Lightning.SetActive(false);
+        }
+        else
+        {
+            _simulationLightning.SetActive(false);
+        }
     }
 
     public static void EndSimulation() => State = GameState.Turns;
