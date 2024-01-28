@@ -50,7 +50,7 @@ public class DeckPlayer : MonoBehaviour
             return;
         }
 
-    Debug.Log("Waiting for assigment");
+        Debug.Log("Waiting for assigment");
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -82,7 +82,7 @@ public class DeckPlayer : MonoBehaviour
 
     public void SetupNewCard(Card card)
     {
-    
+
         var _buttonRef = card.GetComponent<Button>();
 
         _buttonRef.onClick.AddListener(delegate { HandleCast(card); });
