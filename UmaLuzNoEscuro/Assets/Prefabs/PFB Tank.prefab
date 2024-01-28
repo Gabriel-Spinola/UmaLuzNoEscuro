@@ -77,8 +77,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7745283007119916586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.063838, y: 8.509457, z: 11.340842}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 7.052, y: 7.9287, z: 11.353}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2200581960715419570}
@@ -146,8 +146,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9999996, y: 1.6757827, z: 0.9999996}
+  m_Center: {x: 0, y: 0.33789364, z: 0}
 --- !u!195 &8987353408394848407
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7745283007119916586}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -166,7 +166,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
+  m_Height: 1.68
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -183,8 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 0}
-  _attackRange: 1.5
-  _attackCooldown: 2
+  _attackRange: 3.6
+  _attackCooldown: 6
   _assignable:
     serializedVersion: 2
     m_Bits: 8
@@ -267,7 +267,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0de24a3ff721994439478b065adc6ed1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.54
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0de24a3ff721994439478b065adc6ed1,
         type: 3}

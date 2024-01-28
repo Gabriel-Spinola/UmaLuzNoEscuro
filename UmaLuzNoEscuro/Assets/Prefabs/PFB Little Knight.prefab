@@ -594,7 +594,7 @@ CapsuleCollider:
   m_Radius: 0.5559925
   m_Height: 1.8001068
   m_Direction: 1
-  m_Center: {x: 0.09000003, y: 0.7826294, z: 0.19999999}
+  m_Center: {x: 0.09000003, y: -0.06, z: -0.12}
 --- !u!195 &3246920219687921645
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -614,7 +614,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.7
-  m_BaseOffset: 0
+  m_BaseOffset: 0.83
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &-3972991133588519917
@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 0}
-  _attackRange: 2
+  _attackRange: 2.73
   _attackCooldown: 4
   _assignable:
     serializedVersion: 2
@@ -1031,12 +1031,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b83f7ef7e5857a94babc267348aa3a5c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.858
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b83f7ef7e5857a94babc267348aa3a5c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.043
+      value: -0.419
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b83f7ef7e5857a94babc267348aa3a5c,
         type: 3}
