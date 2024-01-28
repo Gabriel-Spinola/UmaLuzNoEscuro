@@ -15,11 +15,20 @@ public class Card : MonoBehaviour
 {
     public CardInfo Info;
 
+    [SerializeField] private TMP_Text _TMP_damage;
+    [SerializeField] private TMP_Text _TMP_health;
+
     [HideInInspector] public Turns Owner = Turns.Player1;
 
     private void Awake()
     {
         GetComponentInChildren<TMP_Text>().text = Info.CardName;
+    }
+
+    private void Start()
+    {
+        _TMP_damage.text = Info.AttackDamage.ToString();
+        _TMP_health.text = Info.Health.ToString();
     }
 
     public void Cast(Vector3 position)

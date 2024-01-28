@@ -15,7 +15,7 @@ MonoBehaviour:
   CardName: Caster
   Cost: 4
   CardType: 1
-  WorldObject: {fileID: 5691124484755608108, guid: 9ca477e883a358447969c5657bf489be,
+  WorldObject: {fileID: 3844840990643774764, guid: 9ca477e883a358447969c5657bf489be,
     type: 3}
   Health: 8
   AttackDamage: 4
