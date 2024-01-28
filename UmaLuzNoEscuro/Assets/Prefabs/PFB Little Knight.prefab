@@ -450,12 +450,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4552888861203717499}
-  - component: {fileID: 6564078465447448416}
   - component: {fileID: 2553615056485867309}
   - component: {fileID: 8005600303303384078}
   - component: {fileID: 3246920219687921645}
   - component: {fileID: -3972991133588519917}
   - component: {fileID: -1568894730486359465}
+  - component: {fileID: 5446012278762395039}
+  - component: {fileID: 6505741603835812996}
   m_Layer: 3
   m_Name: PFB Little Knight
   m_TagString: Untagged
@@ -471,23 +472,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7613499268018227924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 564.89703, y: 187.87785, z: 0.022197977}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8120683089198106725}
   - {fileID: 7449400980895273869}
   - {fileID: 5913362737339001300}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6564078465447448416
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7613499268018227924}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2553615056485867309
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -611,6 +605,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackParticles: {fileID: 550818725255500540, guid: 1ab1a323824f3184785774af29fc4230,
     type: 3}
+--- !u!95 &5446012278762395039
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7613499268018227924}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6505741603835812996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7613499268018227924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c485381519b97448b99617ba4c09db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mAnimator: {fileID: 0}
 --- !u!1 &8164370271046185004
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,3 +842,113 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1001 &8590844179898281870
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4552888861203717499}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 2d54e6da48a147e4aa43c34fff403569,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2d54e6da48a147e4aa43c34fff403569,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2d54e6da48a147e4aa43c34fff403569,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2d54e6da48a147e4aa43c34fff403569,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2d54e6da48a147e4aa43c34fff403569,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2d54e6da48a147e4aa43c34fff403569,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2d54e6da48a147e4aa43c34fff403569,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2d54e6da48a147e4aa43c34fff403569,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2d54e6da48a147e4aa43c34fff403569,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2d54e6da48a147e4aa43c34fff403569,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2d54e6da48a147e4aa43c34fff403569,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2d54e6da48a147e4aa43c34fff403569,
+        type: 3}
+      propertyPath: m_Name
+      value: saponildosemrigl@Sword And Shield Idle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d54e6da48a147e4aa43c34fff403569,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 550478453882742745}
+  m_SourcePrefab: {fileID: 100100000, guid: 2d54e6da48a147e4aa43c34fff403569, type: 3}
+--- !u!4 &8120683089198106725 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2d54e6da48a147e4aa43c34fff403569,
+    type: 3}
+  m_PrefabInstance: {fileID: 8590844179898281870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8933354482056336095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d54e6da48a147e4aa43c34fff403569,
+    type: 3}
+  m_PrefabInstance: {fileID: 8590844179898281870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &550478453882742745
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8933354482056336095}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 233f5ba77f65cf84bbf26dd212981be1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
